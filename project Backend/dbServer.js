@@ -4,13 +4,11 @@ const mysql = require("mysql")
 require("dotenv").config()
 const bcrypt = require("bcrypt")
 const cors = require("cors")
-app.use(cors({
-    origin : "https://127.0.0.1:3005"
-}))
+
 app.use(express.json())
 //middleware to read req.body.<params>
 
-
+app.use(cors());
 
 const db = mysql.createPool({
     connectionLimit: 100,
@@ -29,6 +27,7 @@ app.get("/createUser", (req,res) => {
 
 //CREATE USER
 app.post("/createUser", async (req, res) => {
+    console.log("Post clam!!!!");
     const fname = req.body.fname;
     const lname = req.body.lname;
     const email = req.body.email;
