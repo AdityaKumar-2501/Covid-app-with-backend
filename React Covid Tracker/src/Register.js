@@ -16,27 +16,39 @@ function Register() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const data = {fname , lname , email , password};
-    fetch("http://localhost:3005/createUser",{ mode: 'no-cors'}, {
-      method : 'POST',
-      headers : {"Content-Type" : "application/json",'Access-Control-Allow-Origin': '*'},
-      body : JSON.stringify(data)
-      }).then(() => {
-        console.log('user registered');
+    const data = { fname, lname, email, password };
+
+    const url = "http://localhost:3005/createUser"
+    console.log(data);
+
+    axios.post(url, data)
+      .then(response => console.log("Response", response))
+      .catch(err => console.log(err))
 
 
-    })
+
+
+
+    // fetch("http://localhost:3005/createUser",{ mode: 'no-cors'}, {
+    //   method : 'POST',
+    //   headers : {"Content-Type" : "application/json",'Access-Control-Allow-Origin': '*'},
+    //   body : JSON.stringify(data)
+    //   }).then(() => {
+    //     console.log('user registered');
+
+
+    // })
     // e.preventDefault();
 
     // fetch("http://localhost:3005/createUser", {mode: 'no-cors'}, {
     //   method: 'GET',
-      
+
     // }).then(()=>{
     //   console.log("111111111111");
     // })
 
     // axios.post("http://localhost:3005/createUser",{ mode: 'no-cors'}, {
-        
+
     //     headers : {
     //       "Content-Type" : "application/json",
     //       'Access-Control-Allow-Origin': '*',
@@ -100,7 +112,7 @@ function Register() {
             </div>
             <div class="modal-body">
               {/* <!-- Default form register --> */}
-              <form class="text-center border border-light p-5"  onSubmit={handleSubmit}>
+              <form class="text-center border border-light p-5" onSubmit={handleSubmit}>
 
                 <p class="h4 mb-4">Sign up</p>
 
@@ -132,8 +144,15 @@ function Register() {
 
 
 
-                <button type="submit" class="btn btn-primary" >submit</button>
-
+                  {/* <script>
+                  function myfunc{
+                    <div class="alert alert-success" role="alert">
+                      You are Register Succesfully!
+                    </div>
+                  }
+                </script> */}
+                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" onClick={() => alert("You Registered Succesfully")}>submit</button>
+                
               </form>
               {/* <!-- Default form register --> */}
             </div>
