@@ -6,7 +6,7 @@ import 'mdbreact/dist/css/mdb.css';
 import axios from 'axios';
 
 import Button from "@mui/material/Button";
-function Register() {
+function Appointment() {
 
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
@@ -18,7 +18,7 @@ function Register() {
 
     const data = { fname, lname, email, password };
 
-    const url = "http://localhost:3005/createUser"
+    const url = "http://localhost:3005/data"
     console.log(data);
 
     axios.post(url, data)
@@ -26,94 +26,23 @@ function Register() {
       .catch(err => console.log(err))
 
 
-
-
-
-    // fetch("http://localhost:3005/createUser",{ mode: 'no-cors'}, {
-    //   method : 'POST',
-    //   headers : {"Content-Type" : "application/json",'Access-Control-Allow-Origin': '*'},
-    //   body : JSON.stringify(data)
-    //   }).then(() => {
-    //     console.log('user registered');
-
-
-    // })
-    // e.preventDefault();
-
-    // fetch("http://localhost:3005/createUser", {mode: 'no-cors'}, {
-    //   method: 'GET',
-
-    // }).then(()=>{
-    //   console.log("111111111111");
-    // })
-
-    // axios.post("http://localhost:3005/createUser",{ mode: 'no-cors'}, {
-
-    //     headers : {
-    //       "Content-Type" : "application/json",
-    //       'Access-Control-Allow-Origin': '*',
-    //   },
-    //     // body : JSON.stringify(data)
-    // }).then((response)=> {
-    //   console.log("23452");
-    // })
   }
-  // const [isSubmitted , setIsSubmitted] = useState(false)
-
-  // useEffect(() => {
-  //   let data = { fname, lname, email, password };
-
-  // fetch("http://localhost:3005/createUser", {
-  //   method: 'POST',
-  //   // headers: {
-  //   //   "Accept" : "application/json",
-  //   //   "Content-Type" : "application/json"
-  //   // },
-  //   body: JSON.stringify(data)
-  // }).then((result) => {
-  //   result.json().then((resp) => {
-  //     console.log("resp", resp);
-  //     console.log(data);
-  //   })
-  // })}, [isSubmitted])
-
-  // function saveUser() {
-  //   let data = { fname, lname, email, password };
-
-  //   fetch("http://localhost:3005/createUser", {
-  //     method: 'POST',
-  //     headers: {
-  //       "Accept" : "application/json",
-  //       "Content-Type" : "application/json"
-  //     },
-  //     body: JSON.stringify(data)
-  //   }).then((result) => {
-  //     result.json().then((resp) => {
-  //       console.log("resp", resp);
-  //     })
-  //   })
-  // }
 
 
 
-  // function myfunc(){
-  //   <div class="alert alert-success" role="alert">
-  //     You are Register Succesfully!
-  //   </div>
-  // }
 
   return (
-    <div className="register">
+    <div className="appointment">
 
-      <Button variant="contained" color="error" data-bs-toggle="modal" data-bs-target="#exampleModal2" style={{ textDecoration: "none" }}>
-        Register
+      <Button variant="contained" color="secondary" data-bs-toggle="modal" data-bs-target="#exampleModal2" style={{ textDecoration: "none" }}>
+        Appointment
       </Button>
 
       <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Register</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Appointment</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -185,4 +114,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default Appointment;

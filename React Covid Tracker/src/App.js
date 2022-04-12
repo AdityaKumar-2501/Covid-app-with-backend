@@ -19,6 +19,7 @@ import Button from "@mui/material/Button";
 import { BrowserRouter as Router,  Route, Link,Routes} from "react-router-dom";
 import Login from "./Login";
 import Register from "./Register";
+import Appointment from "./Appointment";
 import MyComponent from "./MyComponent";
 // import Buttons from "./Buttons";
 
@@ -159,9 +160,11 @@ const App = () => {
 
             <Register />
 
-            <Button variant="contained" color="secondary" data-bs-toggle="modal" data-bs-target="#exampleModal2" style={{ textDecoration: "none" }}>
+            {/* <Button variant="contained" color="secondary" data-bs-toggle="modal" data-bs-target="#exampleModal2" style={{ textDecoration: "none" }}>
                 Appointment
-              </Button>
+              </Button> */}
+            
+            <Appointment />
 
             <MyComponent />
           </Stack>

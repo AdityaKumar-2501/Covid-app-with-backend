@@ -12,7 +12,7 @@ function Login() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  let respo;
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -22,10 +22,11 @@ function Login() {
     console.log(data);
 
     axios.post(url, data)
-      .then(response => console.log("Response", response))
+      .then(response => 
+        // respo = response
+        console.log("Response : ", response))
+      
       .catch(err => console.log(err))
-
-
 
 
   }
@@ -59,22 +60,32 @@ function Login() {
     <p class="h4 mb-4">Sign in</p>
 
     {/* <!-- Email --> */}
-    <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" value={email} onChange={(e) => { setEmail(e.target.value) }} name="email" placeholder="E-mail" />
+    <input type="email" id="defaultLoginFormEmail" required class="form-control mb-4" value={email} onChange={(e) => { setEmail(e.target.value) }} name="email" placeholder="E-mail" />
 
     {/* <!-- Password --> */}
-    <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" value={password} onChange={(e) => { setPassword(e.target.value) }} name="password" placeholder="Password" />
+    <input type="password" id="defaultLoginFormPassword" required class="form-control mb-4" value={password} onChange={(e) => { setPassword(e.target.value) }} name="password" placeholder="Password" />
 
-    <div >
+    {/* <div >
         <div>
-            {/* <!-- Remember me --> */}
+             <!-- Remember me --> 
             <div>
             <p class="mb-0">Don't have an account? <a href="">Register</a></p>
             </div>
         </div>
-    </div>
+    </div> */}
 
     {/* <!-- Sign in button --> */}
-    <button class="btn btn-info btn-block my-4" type="submit" data-bs-dismiss="modal" onClick={() => alert("You Login Succesfully")}>Sign in</button>
+    <button class="btn btn-info btn-block my-4" type="submit"  onClick={
+                  () =>{
+                  if(email=="" || email == null) alert("Enter the requied field First");
+                  else if(password=="" || password == null) alert("Enter the requied field First");
+                  else{
+                    // if(respo.data == 'Password incorrect!'){
+                    //   alert('Password incorrect!')
+                    // }
+                     alert("You Logged In Succesfully");
+                  }
+                } }>Sign in</button>
 
     
 </form>
